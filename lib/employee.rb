@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require 'date'
 require './modules/date_handler'
 
@@ -15,4 +16,7 @@ class Employee
     @start_date = DateHandler.string_to_date(start_date)
     @end_date = DateHandler.string_to_date(end_date)
   end
+=======
+class Employee
+>>>>>>> 83f344b6ebdac40cfd4eed8f16cc3ef6f8263c70
 end

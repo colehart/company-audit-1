@@ -3,6 +3,7 @@ require './lib/employee'
 
 class EmployeeTest < Minitest::Test
   def test_instantiation
+<<<<<<< HEAD
     employee = Employee.new('1', 'Sally', 'role', '2015-01-01', '2018-01-01')
     assert_instance_of Employee, employee
   end
@@ -17,5 +18,10 @@ class EmployeeTest < Minitest::Test
     assert_equal 5, employee.employee_id
     assert_instance_of Date, employee.start_date
     assert_instance_of Date, employee.end_date
+=======
+  end
+
+  def test_attributes
+>>>>>>> 83f344b6ebdac40cfd4eed8f16cc3ef6f8263c70
   end
 end

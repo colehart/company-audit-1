@@ -14,9 +14,17 @@ class CompanyTest < Minitest::Test
     assert_empty company.timesheets
   end
 
-  def test_load_employee_data
+  def test_doesnt_load_bad_employee_data
     company = Company.new
     import_msg = company.load_employees('bad_employees.csv')
-    assert 'bad_data', import_msg[:error]
+    assert_equal 'bad data', import_msg[:error]
+    assert_empty company.employees
+  end
+
+  def test_load_good_employee_data
+    company = Company.new
+    import_msg = company.load_employees('employees.csv')
+    assert_nil import_msg[:error]
+    assert_equal 2, company.employees.length
   end
 end

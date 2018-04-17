@@ -15,12 +15,16 @@ class Company
 
   def load_employees(filename)
     path = "./data/#{filename}"
-    import_msg = { success: true, error: nil }
-    require "pry";binding.pry
-    poss_employee_data = CSV.foreach(path) do |row|
-      return success: false if row.include?(nil)
-      'success'
+    import_msg = Hash.new(success: true, error: nil)
+    CSV.foreach(path) do |row|
+      if row.include?(nil)
+        import_msg[:success] = false
+        import_msg[:error] = 'bad data'
+      else
+        @employees << row
+      end
     end
+    import_msg
   end
 
   # def self.from_csv(data = Hash.new(0))

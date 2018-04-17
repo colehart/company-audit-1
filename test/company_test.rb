@@ -16,6 +16,7 @@ class CompanyTest < Minitest::Test
 
   def test_load_employee_data
     company = Company.new
-    company.load_employees('bad_employees.csv')
+    import_msg = company.load_employees('bad_employees.csv')
+    assert 'bad_data', import_msg[:error]
   end
 end

@@ -16,7 +16,6 @@ class Company
   def check_dataset(path)
     import_msg = Hash.new(success: true, error: nil)
     possible_dataset = CSV.read(path)
-    require "pry";binding.pry
     possible_dataset.each do |data|
       import_msg.replace(success: false, error: 'bad data') if data.include?(nil)
     end

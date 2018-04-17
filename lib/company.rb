@@ -13,8 +13,14 @@ class Company
     @timesheets = []
   end
 
-  def self.load_employees(filename)
-    # poss_employee_data = CSV.read(filename, headers: true)
+  def load_employees(filename)
+    path = "./data/#{filename}"
+    import_msg = { success: true, error: nil }
+    require "pry";binding.pry
+    poss_employee_data = CSV.foreach(path) do |row|
+      return success: false if row.include?(nil)
+      'success'
+    end
   end
 
   # def self.from_csv(data = Hash.new(0))

@@ -13,4 +13,9 @@ class CompanyTest < Minitest::Test
     assert_empty company.projects
     assert_empty company.timesheets
   end
+
+  def test_load_employee_data
+    company = Company.new
+    company.load_employees('bad_employees.csv')
+  end
 end

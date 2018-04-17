@@ -1,17 +1,15 @@
 require 'date'
 require './modules/date_handler'
 
-# Employee class
-class Employee
-  attr_reader :employee_id,
+# Project class
+class Project
+  attr_reader :project_id,
               :name,
-              :role,
               :start_date,
               :end_date
-  def initialize(employee_id, name, role, start_date, end_date)
-    @employee_id = employee_id.to_i
+  def initialize(project_id, name, start_date, end_date)
+    @project_id = project_id.to_i
     @name = name
-    @role = role
     @start_date = DateHandler.string_to_date(start_date)
     @end_date = DateHandler.string_to_date(end_date)
   end
